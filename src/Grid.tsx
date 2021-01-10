@@ -85,6 +85,7 @@ const Grid: React.FC<GridProps> = ({
   useEffect(() => {
     let mathFunc;
     try {
+      // eslint-disable-next-line
       mathFunc = new Function(
         "t",
         "i",
