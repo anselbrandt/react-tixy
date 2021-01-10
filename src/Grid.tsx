@@ -34,7 +34,7 @@ const Grid: React.FC<GridProps> = ({
   const timerFrame = useRef<number | undefined>();
   const renderFrame = useRef<number | undefined>();
   const [time, setTime] = useState<number>(0);
-  const [isPaused, setIsPaused] = useState<boolean>(false);
+  const [isPaused] = useState<boolean>(false);
   const currentFunc = useRef<Function | undefined>();
   const [input, setInput] = useState<string>(
     `hypot(x-=t%4*5,y-=8)<6&&x<y|y<-x`
@@ -80,7 +80,7 @@ const Grid: React.FC<GridProps> = ({
     };
     timerFrame.current = requestAnimationFrame(render);
     return () => cancelAnimationFrame(timerFrame.current as number);
-  }, [isPaused]);
+  }, [isPaused, incr]);
 
   useEffect(() => {
     let mathFunc;
